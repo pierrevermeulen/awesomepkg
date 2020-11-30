@@ -8,7 +8,7 @@ import pandas as pd
 
 # Import from awesomepkg
 import awesomepkg
-from awesomepkg.lib import clean_data
+from awesomepkg.lib import try_me
 
 if __name__ == '__main__':
     usage = '%(prog)s'
@@ -17,11 +17,4 @@ if __name__ == '__main__':
     # https://docs.python.org/3/howto/argparse.html
     parser = argparse.ArgumentParser(description=description, usage=usage)
     args = parser.parse_args()
-    folder_source, _ = split(awesomepkg.__file__)
-    df = pd.read_csv('{}/data/data.csv.gz'.format(folder_source))
-    print('  awesomepkg/data/data.csv.gz Loaded')
-
-    res = clean_data(df)
-    res.to_csv('out.csv', index=False)
-    print('==> out.csv MADE ')
-    print('    shape is {}'.format(res.shape))
+    try_me()
